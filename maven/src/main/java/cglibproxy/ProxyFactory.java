@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  * @projectName Algorithm
  * @description
  */
-public class ProxyFactory implements MethodInterceptor {
+public class ProxyFactory {
     private Teacher teacher;
 
     public ProxyFactory(Teacher teacher) {
@@ -22,16 +22,19 @@ public class ProxyFactory implements MethodInterceptor {
 
     public Object getProxyInstance() {
         Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(teacher.getClass());
-        enhancer.setCallback(this);
+
+        enhancer.setSuperclass(Teacher.class);
+
+        enhancer.setCallback(new MethodInterceptor() {
+            @Override
+            public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+                System.out.println("cglib 代理 -- start --");
+                Object returnVal = methodProxy.invokeSuper(teacher, args);
+                System.out.println("cglib 代理 -- end --");
+                return returnVal;
+            }
+        });
         return enhancer.create();
     }
 
-    @Override
-    public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-        System.out.println("cglib 代理 -- start --");
-        Object returnVal = method.invoke(teacher, args);
-        System.out.println("cglib 代理 -- end --");
-        return returnVal;
-    }
 }

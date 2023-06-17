@@ -11,9 +11,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: cglib:cglib:3.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm:9.4" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm-commons:9.4" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:9.4" level="project" />
+    <orderEntry type="library" name="Maven: cglib:cglib:2.2" level="project" />
+    <orderEntry type="library" name="Maven: asm:asm:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.22" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.22" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.22" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.22" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.3.15" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.15" level="project" />
   </component>
 </module>
