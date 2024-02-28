@@ -22,13 +22,6 @@ public class Queue<T> {
         public QueueNode(T data) {
             this.data = data;
         }
-
-        @Override
-        public String toString() {
-            return "QueueNode{" +
-                    "data=" + data +
-                    '}';
-        }
     }
 
     public boolean isEmpty() {
@@ -79,5 +72,20 @@ public class Queue<T> {
     public T tail() {
         if(tail == null) return null;
         return tail.data;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder("[");
+        QueueNode<T> node = head;
+        while(node != null) {
+            stringBuilder.append(node.data.toString());
+            node = node.next;
+            if(node != null) {
+                stringBuilder.append(", ");
+            }
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
     }
 }
